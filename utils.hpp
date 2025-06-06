@@ -15,4 +15,6 @@
 
 void showMessage(int i);
 
+void showBooks(vector<Node*> books);
+
 void navigator(int i, BST& db);

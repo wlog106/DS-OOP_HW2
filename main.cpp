@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include "object/BST.hpp"
-#include "controllers/entry/entry.hpp"
+#include "controllers.hpp"
 #include "utils.hpp"
 
 using namespace std;
@@ -15,7 +15,7 @@ using namespace std;
 #define exitMgr 6
 
 int main(int argc, char *argv[]){
-    load_data();
     BST db;
+    db.load();
     Entry(db);
 }

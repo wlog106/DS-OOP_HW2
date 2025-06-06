@@ -9,6 +9,14 @@ BST::BST(){
     root = nullptr;
 }
 
+void BST::load(){
+
+}
+
+void BST::save(){
+
+}
+
 void BST::insert(Node* newNode){
     insert(newNode, root);
 }
@@ -27,23 +35,23 @@ void BST::insert(Node* newNode, Node* cur){
     }
     else{
         if(cur->left == nullptr){
-            cur->left == newNode;
+            cur->left = newNode;
             return;
         }
         insert(newNode, cur->left);
     }
 }
 
-void BST::searchByBoth(string title, int year, vector<Node*>& result){
-    searchByBoth(title, year, root, result);
+void BST::searchByAll(string title, int year, string author, vector<Node*>& result){
+    searchByAll(title, year, author, root, result);
 }
 
-void BST::searchByBoth(string title, int year, Node* cur, vector<Node*>& result){
+void BST::searchByAll(string title, int year, string author, Node* cur, vector<Node*>& result){
     if(cur == nullptr){
         return;
     }
     if(title == cur->getTitle()){
-        while(title == cur->getTitle() && cur != nullptr){
+        while(cur != nullptr && title == cur->getTitle()){
             if(year = cur->getPublish_year()){
                 result.push_back(cur);
             }
@@ -52,10 +60,10 @@ void BST::searchByBoth(string title, int year, Node* cur, vector<Node*>& result)
         }
     }
     else if(title > cur->getTitle()){
-        searchByBoth(title, year, cur->right, result);
+        searchByAll(title, year, author, cur->right, result);
     }
     else{
-        searchByBoth(title, year, cur->left, result);
+        searchByAll(title, year, author, cur->left, result);
     }
 }
 
@@ -68,7 +76,7 @@ void BST::searchByTitle(string title, Node* cur, vector<Node*>& result){
         return;
     }
     if(title == cur->getTitle()){
-        while(title == cur->getTitle() && cur != nullptr){
+        while(cur != nullptr && title == cur->getTitle()){
             result.push_back(cur);
             cur = cur->right;
         }
@@ -119,11 +127,34 @@ void BST::listall(){
 }
 
 void BST::listall(Node* cur){
-    if(cur->left != nullptr){
-        listall(cur->left);
+    if(cur == nullptr){
+        return;
     }
+    listall(cur->left);
     cout << cur;
-    if(cur->right != nullptr){
-        listall(cur->right);
+    cout << "-----------------------------------\n";
+    listall(cur->right);
+}
+
+void BST::rmalloc(){
+    rmalloc(root);
+}
+
+void BST::rmalloc(Node* cur){
+    if(cur == nullptr){
+        return;
     }
+    if(cur->left != nullptr){
+        rmalloc(cur->left);
+    }
+    if(cur->right != nullptr){
+        rmalloc(cur->right);
+    }
+    delete cur;
+}
+
+bool BST::isIn(Node* node){
+    vector<Node*> v;
+    searchByAll(node->getTitle(), node->getPublish_year(), node->getAuthor(), root, v);
+    return v.size() != 0;
 }

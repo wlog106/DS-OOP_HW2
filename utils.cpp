@@ -10,13 +10,14 @@ void showMessage(int i){
         cout << "Please enter the info of the book\n"; 
     }
     else if(i == Checkout_){
-        cout << "Please enter the book's title and author to checkout\n";
+        cout << "Please enter the book's information to checkout\n";
     }
     else if(i == Return_){
-        cout << "Please enter the book's title and author to return\n";
+        cout << "Please enter the book's information to return\n";
     }
     else if(i == Listall_){
-        cout << "===INFO FOR ALL BOOKS IN THE LIBRARY===\n";
+        cout << "======== Books information ========\n";
+        cout << "-----------------------------------\n";
     }
     else if(i == Search_){
         cout << "Choose your search criteria\n"
@@ -25,14 +26,24 @@ void showMessage(int i){
              << "3. Search by public year\n";
     }
     else if(i == Entry_){
-        cout << "=== Library Management System ===\n"
+        cout << "==== Library Management System ====\n"
              << "1. Add a new book\n"
-             << "2. Search a book by its public year\n"
+             << "2. Search a book\n"
              << "3. Checkout a book\n"
              << "4. Return a book\n"
              << "5. List all books' info\n"
-             << "6. Exit this system\n";
+             << "6. Exit this system\n"
+             << "===================================\n";
     }
+}
+
+void showBooks(vector<Node*> books){
+    cout << "======== Books information ========\n";
+    for(auto book : books){
+        cout << book;
+        cout << "-----------------------------------\n";
+    }
+    cout << "===================================\n";
 }
 
 void navigator(int target, BST& db){
@@ -65,5 +76,9 @@ void navigator(int target, BST& db){
     }
     else if(target == public_year){
         SearchByPublicYear(db);
+    }
+    else{
+        cout << "Not a valid operation...\n";
+        Entry(db);
     }
 }

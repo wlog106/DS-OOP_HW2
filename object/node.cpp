@@ -25,9 +25,14 @@ void Node::returnOne(){
 }
 
 std::ostream& operator << (std::ostream& out, Node* node){
-    out << "Title: " << node->getTitle() << "\n"
+    try{
+        out << "Title: " << node->getTitle() << "\n"
         << "Author: " << node->getAuthor() << "\n"
         << "Public Year: " << node->getPublish_year() << "\n"
         << "avaliable copies: " << node->getAvaliable_copies() << "\n";
+    }
+    catch(std::exception& e){
+        out << node->getAuthor().length();
+    }
     return out;
 }
