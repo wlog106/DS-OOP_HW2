@@ -39,6 +39,7 @@ void showMessage(int i){
 
 void showBooks(vector<Node*> books){
     cout << "======== Books information ========\n";
+    cout << "-----------------------------------\n";
     for(auto book : books){
         cout << book;
         cout << "-----------------------------------\n";

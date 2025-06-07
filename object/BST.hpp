@@ -23,6 +23,7 @@ private:
     void insert(Node* newNode, Node* cur);
     void searchByAll(string title, int year, string author, Node* cur, vector<Node*>& result);
     void searchByTitle(string title, Node* cur, vector<Node*>& result);
+    void searchByTitle_(string title, Node* cur, vector<Node*>& result);
     void searchByPublicYear(int year, Node* cur, vector<Node*>& result);
     void searchByAuthor(string author, Node* cur, vector<Node*>& result);
     void listall(Node* cur);

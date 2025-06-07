@@ -94,7 +94,7 @@ void BST::searchByAll(string title, int year, string author, Node* cur, vector<N
     }
     if(title == cur->getTitle()){
         while(cur != nullptr && title == cur->getTitle()){
-            if(year = cur->getPublish_year()){
+            if(year = cur->getPublish_year() && author == cur->getAuthor()){
                 result.push_back(cur);
             }
             cur = cur->right;
@@ -118,10 +118,7 @@ void BST::searchByTitle(string title, Node* cur, vector<Node*>& result){
         return;
     }
     if(title == cur->getTitle()){
-        while(cur != nullptr && title == cur->getTitle()){
-            result.push_back(cur);
-            cur = cur->right;
-        }
+        searchByTitle_(title, cur, result);
         return;
     }
     if(title > cur->getTitle()){
@@ -130,6 +127,15 @@ void BST::searchByTitle(string title, Node* cur, vector<Node*>& result){
     else{
         searchByTitle(title, cur->left, result);
     }
+}
+
+void BST::searchByTitle_(string title, Node* cur, vector<Node*>& result){
+    if(cur == nullptr) return;
+    if(title == cur->getTitle()){
+        result.push_back(cur);
+    }
+    searchByTitle_(title, cur->left, result);
+    searchByTitle_(title, cur->right, result);
 }
 
 void BST::searchByPublicYear(int year, vector<Node*>& result){
