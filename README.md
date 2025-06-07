@@ -15,4 +15,5 @@
 > run : `./LMS.exe`  
 ## Note
 
-- The data would be save in `pwd/data.txt`
+- The data would be saved in `pwd/data.txt`
+- BST would be balanced after Save & Load (restart the system)
