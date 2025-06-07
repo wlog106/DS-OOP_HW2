@@ -183,6 +183,7 @@ void SearchByPublicYear(BST& db){
 void Search(BST& db){
     showMessage(Search_);
     int choice;
+    cout << "> Enter your choice: ";
     while (!(cin >> choice)) {
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -201,6 +202,7 @@ void Exit(BST& db){
 void Entry(BST& db){
     showMessage(Entry_);
     int choice;
+    cout << "> Enter your choice: ";
     while (!(cin >> choice)) {
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
