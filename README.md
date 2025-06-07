@@ -4,7 +4,7 @@
 - Save data: using in order traversal to save data as sorted order
 - Load data: using recursion to insert sorted data to ensure the balance of BST
 - Validator: string length should less or equal than 20, non-integer input for integer would be blocked
-### Get start
+### Get started
 #### Linux:
 > compile: `g++ *.cpp object/*.cpp -o LMS`  
 > run: `./LMS` 
