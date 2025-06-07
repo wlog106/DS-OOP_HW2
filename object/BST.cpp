@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include "BST.hpp"
 #include "node.hpp"
@@ -10,11 +11,52 @@ BST::BST(){
 }
 
 void BST::load(){
+    ifstream in;
+    char buffer[25];
+    vector<Node*> v;
+    vector<string> vs;
+    in.open("data.txt");
+    while(in.getline(buffer, 25)){
+        string str(buffer);
+        if(str == "--------"){
+            Node* newNode = new Node(vs[0], vs[1], stoi(vs[2]), stoi(vs[3]));
+            v.push_back(newNode);
+            vs.clear();
+            continue;
+        }
+        vs.push_back(buffer);
+    }
+    in.close();
+    balanceLoad(v, 0, v.size()-1);
+}
 
+void BST::balanceLoad(vector<Node*> v, int start, int end){
+    if(start > end) return;
+
+    int mid = (start+end)/2;
+    insert(v[mid]);
+
+    balanceLoad(v, start, mid-1);
+    balanceLoad(v, mid+1, end);
 }
 
 void BST::save(){
+    ofstream out;
+    out.open("data.txt");
+    save(root, out);
+    out.close();
+}
 
+void BST::save(Node* cur, ofstream& out){
+    if(cur == nullptr) return;
+
+    save(cur->left, out);
+    out << cur->getTitle() << "\n"
+        << cur->getAuthor() << "\n"
+        << cur->getPublish_year() << "\n"
+        << cur->getAvaliable_copies() << "\n"
+        << "--------\n";
+    save(cur->right, out);
 }
 
 void BST::insert(Node* newNode){

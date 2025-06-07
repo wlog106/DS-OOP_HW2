@@ -25,9 +25,13 @@ void Add(BST& db){
     int copy, year;
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
     cout << "> Title: ";
-    getline(cin, title);
+    do{
+        getline(cin, title);
+    }while(title.length() > 20 && cout << "length > 20, invaild. Try again: ");
     cout << "> Author: ";
-    getline(cin, author);
+    do{
+        getline(cin, author);
+    }while(author.length() > 20 && cout << "length > 20, invaild. Try again: ");
     cout << "> Available copies: ";
     while (!(cin >> copy) || copy < 0) {
         cin.clear();
@@ -60,9 +64,13 @@ void Checkout(BST& db){
     int year;
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << "> Title: ";
-    getline(cin, title);
+    do{
+        getline(cin, title);
+    }while(title.length() > 20 && cout << "length > 20, invaild. Try again: ");
     cout << "> Author: ";
-    getline(cin, author);
+    do{
+        getline(cin, author);
+    }while(author.length() > 20 && cout << "length > 20, invaild. Try again: ");
     cout << "> Public Year: ";
     while (!(cin >> year) || year < 0) {
         cin.clear();
@@ -91,9 +99,13 @@ void Return(BST& db){
     int year;
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << "> Title: ";
-    getline(cin, title);
+    do{
+        getline(cin, title);
+    }while(title.length() > 20 && cout << "length > 20, invaild. Try again: ");
     cout << "> Author: ";
-    getline(cin, author);
+    do{
+        getline(cin, author);
+    }while(author.length() > 20 && cout << "length > 20, invaild. Try again: ");
     cout << "> Public Year: ";
     while (!(cin >> year) || year < 0) {
         cin.clear();
@@ -125,7 +137,9 @@ void SearchByTitle(BST& db){
     string title;
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << "> Title: ";
-    getline(cin, title);
+    do{
+        getline(cin, title);
+    }while(title.length() > 20 && cout << "length > 20, invaild. Try again: ");
     db.searchByTitle(title, v);
     if(v.size() != 0){
         showBooks(v);
@@ -142,7 +156,9 @@ void SearchByAuthor(BST& db){
     string author;
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << "> Author: ";
-    getline(cin, author);
+    do{
+        getline(cin, author);
+    }while(author.length() > 20 && cout << "length > 20, invaild. Try again: ");
     db.searchByAuthor(author, v);
     if(v.size() != 0){
         showBooks(v);
@@ -190,7 +206,7 @@ void Exit(BST& db){
     db.save();
     db.rmalloc();
     cout << "Good Bye\n";
-    exit(1);
+    exit(0);
 }
 
 void Entry(BST& db){

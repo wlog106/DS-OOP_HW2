@@ -27,5 +27,7 @@ private:
     void searchByAuthor(string author, Node* cur, vector<Node*>& result);
     void listall(Node* cur);
     void rmalloc(Node* cur);
+    void balanceLoad(vector<Node*> lv, int start, int end);
+    void save(Node* cur, ofstream& out);
     Node* root;
 };
