@@ -2,7 +2,7 @@
 
 - Data Structure: Binary Search Tree (key: title)
 - Search complexity analyze:  
-  > By title: `O((N-K)+log(K))` where `K` is the depth of first matched title  
+  > By title: `O((N-K)+log(K))` where `logK` is the depth of first matched title  
   > By other criteria: `O(N)`
 - Save data: using in order traversal to save data as sorted order
 - Load data: using recursion to insert sorted data to ensure the balance of BST
