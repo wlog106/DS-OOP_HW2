@@ -12,7 +12,7 @@
 ## Main Logic
 
 ```mermaid
-graph LR
+graph TD
 A(main) --start up--> B(controller/Entry)
 B --choose operation--> C(controller/Add, Checkout...)
 C --after operation done--> B
