@@ -24,7 +24,7 @@ C --called correspond fn--> D(database)
 > compile: `g++ *.cpp object/*.cpp -o LMS`  
 > run: `./LMS` 
 #### Windows:
-> complie: `g++ *cpp object/*.cpp -o LMS.exe`  
+> complie: `g++ *.cpp object/*.cpp -o LMS.exe`  
 > run : `./LMS.exe`
 
 *interface is quite intuitive so there is no `usage` explaination in README
