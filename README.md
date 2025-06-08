@@ -25,7 +25,9 @@ C --called correspond fn--> D(database)
 > run: `./LMS` 
 #### Windows:
 > complie: `g++ *cpp object/*.cpp -o LMS.exe`  
-> run : `./LMS.exe`  
+> run : `./LMS.exe`
+
+*interface is quite intuitive so there is no `usage` explaination in README
 ## Note
 
 - The data would be saved in `pwd/data.txt`
